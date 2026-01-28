@@ -1,0 +1,5 @@
+"0","library(tidyverse)"
+"0","library(lme4)"
+"0","library(lmerTest)    # For p-values in lmer output"
+"0","library(emmeans)     # For post-hoc comparisons"
+"0","library(performance) # For model diagnostics"

@@ -1,0 +1,67 @@
+"0","# Overall by Time"
+"0","cat(""--- Overall by Time ---\n"")"
+"1","--- Overall by Time ---
+"
+"0","raw_data %>%"
+"0","  group_by(Time_factor) %>%"
+"0","  summarise("
+"0","    M = mean(Rating),"
+"0","    SD = sd(Rating),"
+"0","    n = n()"
+"0","  ) %>%"
+"0","  print()"
+"1","[38;5;246m# A tibble: 2 × 4[39m
+"
+"1","  Time_factor     M    SD     n
+"
+"1","  [3m[38;5;246m<fct>[39m[23m       [3m[38;5;246m<dbl>[39m[23m [3m[38;5;246m<dbl>[39m[23m [3m[38;5;246m<int>[39m[23m
+"
+"1","[38;5;250m1[39m Pre          3.53  1.66  [4m1[24m100
+"
+"1","[38;5;250m2[39m Post         3.79  1.67  [4m1[24m100
+"
+"0","# By Label and Time"
+"0","cat(""\n--- By Label and Time ---\n"")"
+"1","
+--- By Label and Time ---
+"
+"0","raw_data %>%"
+"0","  group_by(label, Time_factor) %>%"
+"0","  summarise("
+"0","    M = mean(Rating),"
+"0","    SD = sd(Rating),"
+"0","    n = n(),"
+"0","    .groups = ""drop"""
+"0","  ) %>%"
+"0","  pivot_wider("
+"0","    names_from = Time_factor,"
+"0","    values_from = c(M, SD, n),"
+"0","    names_sep = ""_"""
+"0","  ) %>%"
+"0","  print(n = 10)"
+"1","[38;5;246m# A tibble: 10 × 7[39m
+"
+"1","   label              M_Pre M_Post SD_Pre SD_Post n_Pre n_Post
+"
+"1","   [3m[38;5;246m<fct>[39m[23m              [3m[38;5;246m<dbl>[39m[23m  [3m[38;5;246m<dbl>[39m[23m  [3m[38;5;246m<dbl>[39m[23m   [3m[38;5;246m<dbl>[39m[23m [3m[38;5;246m<int>[39m[23m  [3m[38;5;246m<int>[39m[23m
+"
+"1","[38;5;250m 1[39m ComplexConclusions  4.23   4.31   1.62    1.59   110    110
+"
+"1","[38;5;250m 2[39m Elaborations        2.76   2.91   1.47    1.60   110    110
+"
+"1","[38;5;250m 3[39m prediction          4.08   4.31   1.47    1.54   110    110
+"
+"1","[38;5;250m 4[39m recommendations     3.98   3.92   1.54    1.50   110    110
+"
+"1","[38;5;250m 5[39m SimpleConclusions   4      4.35   1.56    1.50   110    110
+"
+"1","[38;5;250m 6[39m Speculations        3.4    3.83   1.56    1.69   110    110
+"
+"1","[38;5;250m 7[39m summaries           4.25   4.55   1.54    1.42   110    110
+"
+"1","[38;5;250m 8[39m Supplementals       3.26   3.48   1.63    1.60   110    110
+"
+"1","[38;5;250m 9[39m Support             2.25   3.06   1.29    1.75   110    110
+"
+"1","[38;5;250m10[39m topicsentences      3.13   3.23   1.59    1.53   110    110
+"
