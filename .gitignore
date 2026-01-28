@@ -1,3 +1,13 @@
 sandbox/ 
+
 data-analysis.Rmd 
+
 *.Rproj
+
+.DS_Store
+
+.Rhistory
+
+.Rproj.user/
+
+~$*
